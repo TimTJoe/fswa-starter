@@ -1,0 +1,37 @@
+@import url("./root.css");
+@import url("./rest.css");
+
+.container {
+  display: grid;
+  grid-template-areas: 
+      "nav nav"
+      "sidebar content";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  align-content: center;
+}
+
+/* Assign grid areas */
+.nav {
+  grid-area: nav;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+/* Responsive: Stack sidebar below content on small screens */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas: 
+          "nav"
+          "content"
+          "sidebar";
+      grid-template-columns: 1fr; /* Single column */
+  }
+}
